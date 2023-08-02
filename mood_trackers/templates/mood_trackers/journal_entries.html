@@ -1,0 +1,22 @@
+{% extends "mood_trackers/inner_page.html" %}
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block inner_page %}
+
+<hr>
+
+<form action="{% url 'mood_trackers:add_entry' %}" method="POST">
+
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type='submit'>Add Journal Entry</button><br>
+
+</form>
+
+{% endblock %}

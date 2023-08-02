@@ -1,0 +1,35 @@
+{% extends 'mood_trackers/inner_page.html' %}
+
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block inner_page %}
+
+
+	<form action="{% url 'therapists:profile' %}" method="POST" enctype="multipart/form-data" class="card">
+		{% csrf_token %} 
+		
+	    {% if user.profile %}
+			<img  width="70%" height="70%" src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar"  accept=".jpg,.jpeg,.png"/>
+			<!-- Displaying the current profile picture -->
+
+			<p>We can't wait to work with you, set a profile picture and we'll get things sorted for you.</p>
+	    {% endif %}
+	    
+	    <h2 class="text-center">{{ user.username | title }}</h2>
+	    <p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
+   	    <hr>
+		{% bootstrap_form profile_form %} 
+	
+	    <button type="submit" class="btn btn-primary full-width">Update Profile</button><br/>
+
+	
+	</form>
+
+{% endblock %}

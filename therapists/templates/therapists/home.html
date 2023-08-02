@@ -1,0 +1,47 @@
+{% extends 'mood_trackers/oldbase.html' %}
+
+{% block profile %}
+
+<aside class="profile-card">
+
+    <header>
+        <!-- here’s the avatar -->
+        <a href="/">
+            <img src="{{user.profile.avatar.url}}" />
+        </a>
+        
+        <!-- the username -->
+        <h1>{{user.name}}</h1>
+        
+        <!-- and role or location -->
+        <h2>{{user.email}}</h2>
+    
+    </header>
+
+    <!-- bit of a bio; who are you? -->
+    <div class="profile-bio">
+    
+        <p>Certified member of the Mental Health Drive and a partner at Mood Tracker</p>
+    
+    </div>
+
+    <!-- some navbar links to show off -->
+    <center>
+        <a href="{% url 'therapists:appointments' %}" style="text-decoration: none;" >
+            Appointments•
+        </a>
+        <a href="{% url 'therapists:profile' %}" style="text-decoration: none;" >
+            Edit profile if you haven't already•
+        </a>
+        <a href="{% url 'mood_trackers:home' %}" style="text-decoration: none;" >
+            Home
+        </a>
+        <a href="{% url 'chat:lobby' %}" style="text-decoration: none;" ><button>Chat</button></a>
+    </center>
+   
+
+</aside>
+
+{% endblock %}
+
+<!-- svg book icon? -->

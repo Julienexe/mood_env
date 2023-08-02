@@ -1,0 +1,65 @@
+{% extends 'mood_trackers/oldbase.html' %}
+
+{% block profile %}
+
+<aside class="profile-card">
+
+    <header>
+        <!-- here’s the avatar -->
+        <a href="/">
+            <img src="{{user.profile.avatar.url}}" />
+        </a>
+        
+        <!-- the username -->
+        <h1>{{user.name}}</h1>
+        
+        <!-- and role or location -->
+        <h2>{{user.profile.mood}}</h2>
+        <p>Emergency contact:<contact>+256708556212</contact>
+        </p>
+    
+    </header>
+
+    <!-- bit of a bio; who are you? -->
+    <div class="profile-bio">
+    
+        <p>Even when everything is perfect, you can always make it better. Break barriers in your head, create something crazy and don't forget Code is Poetry...</p>
+    
+    </div>
+
+    <!-- some navbar links to show off -->
+    <ul class="profile-social-links">
+        
+        <!-- to home page - el clásico  -->
+        <li>
+            <a href="{% url 'mood_trackers:home' %}">
+                <svg viewBox="0 0 30 30">
+                    <path d="M12 3l-9 9h3v8h12v-8h3l-9-9zm-4 16v-6h8v6h-8z"/>
+                </svg>
+                
+            </a>
+        </li>
+        
+        <!-- journaling-->
+        <li>
+            <a href="{% url 'mood_trackers:journal' %}">
+                <i class="fas fa-book"></i>
+            </a>
+        </li>
+        
+        <!-- edit profile-->
+        <li>
+            <a href="{% url 'Users:update_profile' %}">
+                <i class="fas fa-pencil-alt"></i>
+            </a>
+        </li>
+        
+        <!-- add or remove social profiles as you see fit -->
+    
+    </ul>
+
+</aside>
+
+{% endblock %}
+
+<!-- svg book icon? -->

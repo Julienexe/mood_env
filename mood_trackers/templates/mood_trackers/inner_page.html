@@ -1,0 +1,35 @@
+{% extends 'mood_trackers/base.html' %}
+
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+
+{% comment |"this code is commented out because I do not like it" %}
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <ol>
+      <li><a href="{% url 'mood_trackers:home' %}">Home</a></li>
+      <li>Protect your mind</li>
+    </ol>
+    <h2>Track your mood</h2>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+{% endcomment %}
+
+<section class="content">
+  <div class="container">
+    {% block inner_page %}{% endblock %}
+  </div>
+</section>
+
+</main>
+{% endblock %}

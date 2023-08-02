@@ -1,0 +1,50 @@
+{% extends 'mood_trackers/inner_page.html' %}
+
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block inner_page %}
+
+
+	<form action="{% url 'Users:update_profile' %}" method="POST" enctype="multipart/form-data" class="card">
+		{% csrf_token %} 
+		
+	    {% if user.profile %}
+			<img  width="70%" height="70%" src="{{user.profile.avatar.url}}" alt="{{ user.username }}" class="avatar"  accept=".jpg,.jpeg,.png"/>
+			<!-- Displaying the current profile picture -->
+
+			<p>you are feeling: {{user.profile.mood}}</p>
+	    {% endif %}
+	    
+	    <h2 class="text-center">{{ user.username | title }}</h2>
+	    <p class="text-center"><a href="mailto:{{user.email}}">{{user.email}}</a></p>
+   	    <hr>
+        <!-- 		
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" value="{{user.email}}" />
+			
+		
+		<label for="avatar">Avatar:</label>
+		<input type="file" name="avatar" id="avatar">	
+
+		<label for="mood">How do you feel?</label>
+		{{ form }} -->
+
+		<!-- {% for mood in user.profile.Moods %}
+		<input type="" id="email" name="mood" value="{{user.profile.Mood}}" />
+		{% endfor %}
+		 -->
+		{% bootstrap_form profile_form %} 
+	
+	    <button type="submit" class="btn btn-primary full-width">Update Profile</button><br/>
+
+	
+	</form>
+
+{% endblock %}

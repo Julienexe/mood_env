@@ -1,0 +1,29 @@
+{% extends 'mood_trackers/inner_page.html' %}
+
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block inner_page %}
+<hr>
+<div class="shadow-lg mx-auto p-3 rounded-2">
+  <h1>Register here</h1>
+  <form action="{% url 'Users:register_therapist' %}" method="POST">
+                    
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="col-12">
+        <input type="submit" class="btn btn-primary" value="Register">
+    </div>
+  </form>
+</div>  
+  
+
+{% endblock %}
+
+

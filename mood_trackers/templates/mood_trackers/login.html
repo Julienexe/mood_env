@@ -1,0 +1,44 @@
+{% extends 'mood_trackers/inner_page.html' %}
+
+
+
+{% block inner_page %}
+<div class="mx-auto w-50 mt-5 pt-3">
+  <div class="col-lg-12  bg-light rounded-1">
+    <h2 class="comment-title"><centre>Login</centre></h2>
+    <div class="row">
+      <form action="{% url 'Users:login' %}"  method="POST" >
+        {% csrf_token %}
+        <input class="form-control"  type="email" name="email" placeholder="Email">
+        <input class="form-control" type="password" name="password" placeholder="Password">
+        <!--to add spaces between the buttons-->
+				<p>&nbsp;</p>
+        <input class="btn btn-primary"type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% comment %}
+
+<div id="container">
+  <h1 class="logo">Mood Tracker</h1>
+  <div id="form-box">
+    <form action="{% url 'Users:login' %}"  method="POST">
+      {% csrf_token %}
+      <i id="prev-btn" class="fas fa-arrow-left"></i>
+      <i id="next-btn" class="fas fa-arrow-right"></i>
+      <div id="input-group">
+        <input id="input-field" required>
+        <label id="input-label"></label>
+        <div id="input-progress"></div>
+        <input id="submit"  type="submit" value="Login">
+      </div>
+    </form>
+    <div id="progress-bar"></div>
+  </div>
+</div>
+
+{% endcomment %}
+

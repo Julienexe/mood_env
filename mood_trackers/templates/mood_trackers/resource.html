@@ -1,0 +1,27 @@
+{% extends "mood_trackers/inner_page.html" %}
+
+
+
+{% block inner_page %}
+<hr>
+<h2>{{topic.title}}</h2>
+<hr>
+<div class="row">
+    {%for article in articles%}
+    <div class="col-sm-3">
+        <button class="btn btn-outline-info shadow-lg"  data-bs-toggle="collapse" data-bs-target="#{{forloop.counter}}">
+        <div class=" p-3" style="height: 100px; width:auto;">
+           <center><strong>{{article.title}}</strong></center>
+        </div>
+        </button>
+    </div>
+    <div id="{{forloop.counter}}" class="collapse">
+        <div class="mt-4 p-5 text-light rounded-3 shadow-sm" style="background-color:#03a1b6 ;">
+            <strong>{{article.title}}</strong><br>
+            {{article.text|linebreaks|urlize}}
+        </div>
+      </div>
+    {%endfor%}
+</div>
+
+{% endblock %}

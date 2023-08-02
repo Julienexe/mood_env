@@ -1,0 +1,24 @@
+{% extends "mood_trackers/inner_page.html" %}
+
+
+{% block inner_page %}
+<hr>
+  <h1>Resource library</h1>
+  <p>Here you can find all sorts of articles, topics and activities that guarantee you a good time</p>
+<hr>
+  <div class="row">
+    {% for topic in topics %}
+    <div class="col-sm-3">
+      <a class="link" href="{% url 'mood_trackers:topic' topic.id %}">
+        <div class=" rounded-pill shadow-lg p-4 border border-secondary text-light">
+          <center><p>{{topic.title}}</p></center>
+        </div>
+      </a>
+      <!--to add spaces between the buttons-->
+      <p>&nbsp;</p>
+    </div>
+    {% endfor %}
+  </div>
+
+
+{% endblock %}

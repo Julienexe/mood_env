@@ -1,0 +1,60 @@
+{% extends 'mood_trackers/inner_page.html' %}
+
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block inner_page %}
+
+<hr>
+<div class="mx-auto">
+
+	<!-- Offcanvas Sidebar -->
+	<div class="offcanvas offcanvas-start" id="demo">
+	<div class="offcanvas-header">
+	  <h1 class="offcanvas-title">Your Moods this week</h1>
+	  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+	</div>
+	<div class="offcanvas-body">
+	  <p>Right now, your mood is giving {{profile.mood}}</p>
+	  <p>Previously, you have been disgusted, low self esteem and many other moods</p>
+	  <p>You can access our resources<a href="{% url 'mood_trackers:resource_library' %}" style="color: rgb(0, 170, 255);">here </a>or see a therapist<a href="{% url 'mood_trackers:therapy' %}" style="color: rgb(0, 191, 255);">here</a></p>
+	</div>
+	</div>
+
+	
+	
+	<form action="{% url 'Users:update_profile' %}" method="POST" enctype="multipart/form-data"  >
+		{% csrf_token %} 
+		<fieldset>
+			<center><h1>{{ form.mood.label }}</h1><small>mood report below</small></center>
+			<div class="row">
+		    {% for radio in form.mood %} 
+			<div class="col">
+				<button type="submit"  for="radio1" class="shadow-lg btn btn-outline-info text-light rounded-5" style=
+				"display: inline; height: 160px; width: 160px;">
+				{{ radio}}
+			    </button>
+				<!--to add spaces between the buttons-->
+				<p>&nbsp;</p>
+			</div>
+				
+			{% endfor %}
+		    </div>
+		</fieldset>
+
+	
+	</form>
+</div>
+<!-- Button to open the offcanvas sidebar -->
+<button class="shadow-lg btn btn-outline-info text-light rounded-5 "  data-bs-toggle="offcanvas" data-bs-target="#demo" active>
+	View your mood report
+</button>
+
+{% endblock %}
+{{form}}

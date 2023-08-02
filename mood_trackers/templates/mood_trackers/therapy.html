@@ -1,0 +1,38 @@
+{% extends 'mood_trackers/inner_page.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static 'mood_tracker/assets/css/therapy_style.css' %}">
+</head>
+
+
+{% block inner_page %}
+<hr>
+<h1>Our team of amazing therapists is just one call away</h1>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        {% for therapist in therapists %}
+         <div class="col-md-4">
+            <div class="card user-card" style="height: 450px;">
+              <div class="card-header">
+                  <h5>We got you</h5>
+              </div>
+              <div class="card-block">
+                  <div class="user-image">
+                      <img src="{{therapist.avatar.url}}" class="img-radius" alt="User-Profile-Image">
+                  </div>
+                  <h6 class="f-w-600 m-t-25 m-b-10">{{therapist.user.name}}</h6>
+                  <p class="text-muted">Certified member of the Mental Health Drive and a partner at Mood Tracker</p>
+                  <a href="{% url 'chat:lobby' %}"><button>Chat</button></a>
+                  <hr>
+              </div>
+            </div>
+         </div>
+      {% endfor%} 
+      </div>
+	</div>
+</div>
+
+{% endblock %}
+

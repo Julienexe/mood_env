@@ -1,0 +1,33 @@
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Your Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="{% static 'mood_tracker/assets/img/mood_tracker_logo.jpg' %}" rel="icon">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link  rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{% static 'mood_tracker/assets/css/profile_style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
+{% block profile %}{% endblock %}
+
+<!-- that’s all folks! -->
+<!-- partial -->
+  
+</body>
+</html>

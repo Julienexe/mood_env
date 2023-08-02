@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Animated background css only squares</title>
+  <link href="{% static 'mood_tracker/assets/css/new_style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="context">
+        <h1>Pure Css Animated Background</h1>
+    </div>
+
+
+<div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+            {% block content %}{% endblock %}
+    </div >
+<!-- partial -->
+  
+</body>
+</html>

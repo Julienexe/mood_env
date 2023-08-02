@@ -1,0 +1,12 @@
+{% extends "mood_trackers/inner_page.html" %}
+{% load bootstrap5 %}
+
+{% block inner_page %}
+
+<form action="{% url 'mood_trackers:edit_journal' journal.id %}" method='POST'>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button name="submit">save changes</button>
+</form>
+
+{% endblock %}

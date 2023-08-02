@@ -1,0 +1,34 @@
+{% extends "mood_trackers/inner_page.html" %}
+
+{% block inner_page %}
+  <h1>Your journals</h1>
+  {% if journal_entries %} 
+    {% for journal in journal_entries %}
+    <a href="{% url 'mood_trackers:add_entry' %}" >write something new</a>
+    <div class="wrap">
+      <h1 color="white"></h1>
+      <div class="task">
+        <div class="abstract">
+          <h3>{{journal.date_created}}</h3>
+          <p>{{journal.title}}</p>
+        </div>
+        <div class="details">
+          <div class="details__inner">
+            <h3>{{user.profile.mood}}</h3>
+            <p>{{journal.content}}</p>
+            <a href="{% url 'mood_trackers:edit_journal' journal.id %}">edit this?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {% endfor %}    
+  {%else%}
+  <div class="card mx-auto">
+    <p>You have nothing here yet</p>
+    <a href="{% url 'mood_trackers:add_entry' %}">Write something today?</a>
+  </div>
+  {% endif %}
+    
+
+{% endblock %}

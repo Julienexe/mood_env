@@ -1,0 +1,33 @@
+{% extends 'mood_trackers/inner_page.html' %}
+
+{% load static %}
+z
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block inner_page %}
+<!--a list showing pending, completed and confirmed appointments?-->
+<hr>
+<ul> <!-- List of appointments -->
+  <li>{{pending.count}} Pending appointments</li>
+  <li>{{confirmed.count}} confirmed appointments</li>
+  <li>{{completed.count}} completed appointments</li>
+
+</ul>
+{% endblock %}
+
+<!--if statements that check whether an appointment is pending or is completed in django?-->
+
+{# comment #}
+{% if appointment_status == "pending" %}
+  <li>{{appointments.count}} Pending appointments</li> 
+{% elif appointment_status == "completed" %}
+  <li>{{appointments.count}} Completed appointments</li> 
+{% else %}
+  <li>{{appointments.count}} Confirmed appointments</li>
+{% endif %}
+{# endcomment #}
